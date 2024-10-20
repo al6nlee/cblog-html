@@ -8,20 +8,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent} from 'vue';
+<script lang="ts" setup name="Home">
 import Navbar from '@/components/Navbar.vue';
 import BlogList from '@/components/BlogList.vue';
 import Footer from '@/components/Footer.vue';
-
-export default defineComponent({
-  name: 'Home',
-  components: {
-    Navbar,
-    BlogList,
-    Footer,
-  },
-});
 </script>
 
 <style scoped>

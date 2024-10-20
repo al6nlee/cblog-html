@@ -3,9 +3,10 @@
     <div class="container">
       <h1>{{ siteConfig.title }}</h1>
       <ul>
-        <li><a href="#">首页</a></li>
+        <li><router-link to="/">首页</router-link></li>
         <li><a href="#">文章</a></li>
         <li><a href="#">关于</a></li>
+        <li><router-link to="/manage">设置</router-link></li>
       </ul>
     </div>
   </nav>
