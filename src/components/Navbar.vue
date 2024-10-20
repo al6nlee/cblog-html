@@ -60,9 +60,10 @@
 </template>
 
 <script lang="ts" setup name="Navbar">
-import {reactive} from 'vue'
+import {onMounted, reactive, ref} from 'vue'
 import {icon} from "@/utils/icon"
 import {useRouter} from "vue-router";
+import {getCategory} from "@/api/blog";
 
 
 const router = useRouter()
@@ -71,12 +72,14 @@ var siteConfig = reactive({
   name: '文斋阁',
   logo: '/favicon.ico',
 })
-var categoryList = reactive([
-  {id: 1, name: '分类Python'},
-  {id: 2, name: '分类Golang'},
-  {id: 3, name: '分类云原生'},
-  {id: 4, name: '分类前端'}
-])
+
+const categoryList = ref([]);
+
+async function categoryData() {
+  const rsp = await getCategory();
+  categoryList.value = rsp.items;  // 更新响应式数据
+}
+
 var tagList = reactive([
   {id: 1, name: '标签Python'},
   {id: 2, name: '标签Golang'},
@@ -86,6 +89,11 @@ var tagList = reactive([
 
 let {MyIcon} = icon()
 
+onMounted(
+    () => {
+      categoryData()
+    }
+)
 
 </script>
 
