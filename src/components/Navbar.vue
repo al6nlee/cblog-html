@@ -80,8 +80,7 @@ var siteConfig = reactive({
 const categoryList = ref([]);
 
 async function categoryData() {
-  const rsp = await getCategory();
-  categoryList.value = rsp.items;  // 更新响应式数据
+  categoryList.value = await getCategory()
 }
 
 var tagList = reactive([
