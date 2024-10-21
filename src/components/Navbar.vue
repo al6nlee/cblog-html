@@ -35,7 +35,11 @@
             <MyIcon type="icon-archive"/>
             <span class="menu-title">归档</span>
           </el-menu-item>
-          <el-menu-item index="5" @click="router.push('/about')">
+          <el-menu-item index="5" @click="router.push('/')">
+            <MyIcon type="icon-collection"/>
+            <span class="menu-title">作品展示</span>
+          </el-menu-item>
+          <el-menu-item index="6" @click="router.push('/about')">
             <MyIcon type="icon-about"/>
             <span class="menu-title">关于</span>
           </el-menu-item>
@@ -141,7 +145,7 @@ onMounted(
 
 .el-menu > .el-menu-item,
 .el-menu > .el-sub-menu {
-  margin: 0 30px; /* 调整一级菜单项之间的间距 */
+  margin: 0 20px; /* 调整一级菜单项之间的间距 */
   font-size: 16px; /* 调整字体大小 */
 }
 
