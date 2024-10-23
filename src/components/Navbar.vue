@@ -67,7 +67,7 @@
 import {onMounted, reactive, ref} from 'vue'
 import {icon} from "@/utils/icon"
 import {useRouter} from "vue-router";
-import {getCategory} from "@/api/blog";
+import {getCategory, getTag} from "@/api/blog";
 
 
 const router = useRouter()
@@ -77,24 +77,23 @@ var siteConfig = reactive({
   logo: '/favicon.ico',
 })
 
-const categoryList = ref([]);
+var categoryList = ref([]);
+var tagList = ref([]);
 
 async function categoryData() {
   categoryList.value = await getCategory()
 }
 
-var tagList = reactive([
-  {id: 1, name: '标签Python'},
-  {id: 2, name: '标签Golang'},
-  {id: 3, name: '标签云原生'},
-  {id: 4, name: '标签前端'}
-])
+async function tagData() {
+  tagList.value = await getTag()
+}
 
 let {MyIcon} = icon()
 
 onMounted(
     () => {
       categoryData()
+      tagData()
     }
 )
 
