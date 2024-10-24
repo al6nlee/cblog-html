@@ -131,6 +131,18 @@ onMounted(
   justify-content: flex-end;
 }
 
+.el-menu {
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+
+.el-menu > .el-menu-item,
+.el-menu > .el-sub-menu {
+  margin: 0 20px; /* 调整一级菜单项之间的间距 */
+  font-size: 16px; /* 调整字体大小 */
+}
+
 .el-menu-item:hover {
   color: #409eff; /* hover 颜色 */
 }
