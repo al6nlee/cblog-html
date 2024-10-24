@@ -23,14 +23,10 @@
             <el-menu-item v-for="category in categoryList" :key="category.id"
                           :index="'2-'+category.id" @click="toCategory(category.id)">{{ category.name }}</el-menu-item>
           </el-sub-menu>
-          <el-sub-menu index="3">
-            <template #title>
-              <MyIcon type="icon-tag"/>
-              <span class="menu-title">标签</span>
-            </template>
-            <el-menu-item v-for="tag in tagList" :key="tag.id" :index="'3-'+tag.id"
-                          @click="toCategory(tag.id)">{{ tag.name }}</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="3" @click="router.push('/blog/tag')">
+            <MyIcon type="icon-tag"/>
+            <span class="menu-title">标签</span>
+          </el-menu-item>
           <el-menu-item index="4" @click="router.push('/blog/classify')">
             <MyIcon type="icon-archive"/>
             <span class="menu-title">归档</span>
@@ -133,18 +129,6 @@ onMounted(
 .right {
   flex: 1;
   justify-content: flex-end;
-}
-
-.el-menu {
-  display: flex;
-  justify-content: center;
-  border: none;
-}
-
-.el-menu > .el-menu-item,
-.el-menu > .el-sub-menu {
-  margin: 0 20px; /* 调整一级菜单项之间的间距 */
-  font-size: 16px; /* 调整字体大小 */
 }
 
 .el-menu-item:hover {
